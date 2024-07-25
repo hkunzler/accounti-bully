@@ -1,19 +1,21 @@
 :root {
-  --tea-green: #ccf5acff;
-  --space-cadet: #1b264fff;
-  --marian-blue: #274690ff;
-  --true-blue: #576ca8ff;
-  --jet: #302b27ff;
+    --tea-green: #ccf5acff;
+    --space-cadet: #1b264fff;
+    --marian-blue: #274690ff;
+    --true-blue: #576ca8ff;
+    --jet: #302b27ff;
+
+    --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: var(--tea-green);
-  color: var(--jet);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: var(--tea-green);
+    color: var(--jet);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
 }
