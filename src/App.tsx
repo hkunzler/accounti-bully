@@ -5,7 +5,7 @@ import {
     markTaskAsCompleted,
 } from './services/taskService';
 import { LocalNotifications } from '@capacitor/local-notifications';
-import TaskForm from './components/Task/TaskForm';
+import { TaskForm } from './components/Task/TaskForm';
 import { TaskList } from './components/Task/TaskList';
 import { Container, Title } from './components/Task/Task.styles';
 import { TaskProps } from './components/Task/Task.interfaces';

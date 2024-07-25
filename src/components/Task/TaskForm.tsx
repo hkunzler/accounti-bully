@@ -3,7 +3,7 @@ import { saveTask, scheduleNotification } from '../../services/taskService';
 import { Button, Form, Input } from './Task.styles';
 import { TaskFormProps } from './Task.interfaces';
 
-const TaskForm = ({ refreshTasks }: TaskFormProps) => {
+export const TaskForm = ({ refreshTasks }: TaskFormProps) => {
     const [taskName, setTaskName] = useState<string>('');
     const [taskDate, setTaskDate] = useState<string>('');
 
@@ -41,5 +41,3 @@ const TaskForm = ({ refreshTasks }: TaskFormProps) => {
         </Form>
     );
 };
-
-export default TaskForm;
