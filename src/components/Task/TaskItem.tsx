@@ -1,16 +1,5 @@
-import { TaskButton, TaskItem as Item } from './styledComponents';
-
-interface TaskProps {
-    id: number;
-    name: string;
-    date: string;
-}
-
-interface TaskItemProps {
-    task: TaskProps;
-    markCompleted?: (id: number) => void;
-    isActive: boolean;
-}
+import { TaskButton, TaskItem as Item } from './Task.styles';
+import { TaskItemProps } from './Task.interfaces';
 
 export const TaskItem = ({ task, markCompleted, isActive }: TaskItemProps) => {
     return (

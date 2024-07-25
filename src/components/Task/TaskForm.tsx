@@ -1,10 +1,7 @@
 import { useState } from 'react';
-import { saveTask, scheduleNotification } from './taskService';
-import { Button, Form, Input } from './styledComponents';
-
-interface TaskFormProps {
-    refreshTasks: () => void;
-}
+import { saveTask, scheduleNotification } from '../../services/taskService';
+import { Button, Form, Input } from './Task.styles';
+import { TaskFormProps } from './Task.interfaces';
 
 const TaskForm = ({ refreshTasks }: TaskFormProps) => {
     const [taskName, setTaskName] = useState<string>('');

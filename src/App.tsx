@@ -3,11 +3,11 @@ import {
     getActiveTasks,
     getCompletedTasks,
     markTaskAsCompleted,
-} from './taskService';
+} from './services/taskService';
 import { LocalNotifications } from '@capacitor/local-notifications';
-import TaskForm from './TaskForm';
-import { Container, Title } from './styledComponents';
-import { TaskList } from './TaskList';
+import TaskForm from './components/Task/TaskForm';
+import { TaskList } from './components/Task/TaskList';
+import { Container, Title } from './components/Task/Task.styles';
 
 interface Task {
     id: number;

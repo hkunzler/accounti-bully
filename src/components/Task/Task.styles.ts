@@ -1,23 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: var(--box-shadow);
-    width: 100%;
-    max-width: 500px;
-    margin-top: 2rem;
-`;
-
-export const Title = styled.h1`
-    text-align: center;
-`;
-
-export const Subtitle = styled.h2`
-    text-align: center;
-`;
-
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
@@ -47,12 +29,6 @@ export const Button = styled.button`
     }
 `;
 
-export const TaskList = styled.ul`
-    list-style: none;
-    padding: 0;
-    margin: 0;
-`;
-
 export const TaskItem = styled.li<{ $active: boolean }>`
     margin: 0.5rem 0;
     padding: 0.5rem;
@@ -74,4 +50,28 @@ export const TaskButton = styled.button`
     &:hover {
         background-color: var(--marian-blue);
     }
+`;
+
+export const Container = styled.div`
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 500px;
+    margin-top: 2rem;
+`;
+
+export const Title = styled.h1`
+    text-align: center;
+`;
+
+export const Subtitle = styled.h2`
+    text-align: center;
+`;
+
+export const TaskList = styled.ul`
+    list-style: none;
+    padding: 0;
+    margin: 0;
 `;

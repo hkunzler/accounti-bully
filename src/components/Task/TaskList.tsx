@@ -1,18 +1,7 @@
 import { TaskItem } from './TaskItem';
-import { Subtitle, TaskList as List } from './styledComponents';
 
-interface TaskProps {
-    id: number;
-    name: string;
-    date: string;
-}
-
-interface TaskListProps {
-    tasks: TaskProps[];
-    title: string;
-    markCompleted?: (id: number) => void;
-    isActive: boolean;
-}
+import { TaskListProps } from './Task.interfaces';
+import { Subtitle, TaskList as List } from './Task.styles';
 
 export const TaskList = ({
     tasks,
