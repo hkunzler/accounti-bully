@@ -6,6 +6,7 @@ export interface TaskProps {
     id: number;
     name: string;
     date: string;
+    completed?: boolean;
 }
 
 export interface TaskItemProps {

@@ -8,17 +8,11 @@ import { LocalNotifications } from '@capacitor/local-notifications';
 import TaskForm from './components/Task/TaskForm';
 import { TaskList } from './components/Task/TaskList';
 import { Container, Title } from './components/Task/Task.styles';
-
-interface Task {
-    id: number;
-    name: string;
-    date: string;
-    completed: boolean;
-}
+import { TaskProps } from './components/Task/Task.interfaces';
 
 const App = () => {
-    const [activeTasks, setActiveTasks] = useState<Task[]>([]);
-    const [completedTasks, setCompletedTasks] = useState<Task[]>([]);
+    const [activeTasks, setActiveTasks] = useState<TaskProps[]>([]);
+    const [completedTasks, setCompletedTasks] = useState<TaskProps[]>([]);
 
     const refreshTasks = async () => {
         const updatedActiveTasks = await getActiveTasks();
@@ -34,7 +28,7 @@ const App = () => {
             setupNotificationListener();
         };
 
-        const setupNotificationListener = async () => {
+        const setupNotificationListener = async () =>
             await LocalNotifications.addListener(
                 'localNotificationActionPerformed',
                 async ({ notification }) => {
@@ -44,7 +38,6 @@ const App = () => {
                     }
                 }
             );
-        };
 
         init();
 
