@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { saveTask } from '../../services/taskService';
 import { Button, Form, Input } from './Task.styles';
 import { TaskFormProps } from './Task.interfaces';
@@ -8,7 +8,7 @@ export const TaskForm = ({ refreshTasks }: TaskFormProps) => {
     const [taskName, setTaskName] = useState<string>('');
     const [taskDate, setTaskDate] = useState<string>('');
 
-    const handleSubmit = async (event: React.FormEvent) => {
+    const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
         const task = {
             id: Date.now(),
