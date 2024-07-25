@@ -6,24 +6,24 @@ const openaiApi = axios.create({
     baseURL: 'https://api.openai.com/v1/chat',
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`,
+        Authorization: `Bearer ${OPENAI_API_KEY}`,
     },
 });
 
 export const fetchOpenAIResponse = async (prompt: string) => {
     try {
         const response = await openaiApi.post('completions', {
-            model: "gpt-4o",
+            model: 'gpt-4o',
             messages: [
                 {
-                    "role": "system",
-                    "content": [
+                    role: 'system',
+                    content: [
                         {
-                            "type": "text",
-                            "text": `You are the ultimate taskmaster and deliver the harshest roasts to those who fail to complete their tasks. Come up with epic roasts for people who don't get ${prompt} done in under 60 characters. Be sure to include ${prompt} in the roast.`
-                        }
-                    ]
-                }
+                            type: 'text',
+                            text: `You are the ultimate taskmaster and deliver the harshest roasts to those who fail to complete their tasks. Come up with epic roasts for people who don't get ${prompt} done in under 60 characters. Be sure to include ${prompt} in the roast.`,
+                        },
+                    ],
+                },
             ],
             temperature: 1,
             max_tokens: 256,
@@ -32,9 +32,8 @@ export const fetchOpenAIResponse = async (prompt: string) => {
             presence_penalty: 0,
         });
         return response.data;
-    } catch (error: any) {
+    } catch (error) {
         console.error('Error fetching OpenAI response:', error);
         throw error;
     }
 };
-
