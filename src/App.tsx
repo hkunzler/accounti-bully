@@ -4,47 +4,45 @@ import {
     getCompletedTasks,
     markTaskAsCompleted,
 } from './services/taskService';
-import { LocalNotifications } from '@capacitor/local-notifications';
 import { TaskForm } from './components/Task/TaskForm';
 import { TaskList } from './components/Task/TaskList';
 import { Container, Title } from './components/Task/Task.styles';
 import { TaskProps } from './components/Task/Task.interfaces';
+import { useNotification } from './hooks/useNotification';
 
 const App = () => {
     const [activeTasks, setActiveTasks] = useState<TaskProps[]>([]);
     const [completedTasks, setCompletedTasks] = useState<TaskProps[]>([]);
 
     const refreshTasks = async () => {
-        const updatedActiveTasks = await getActiveTasks();
-        const updatedCompletedTasks = await getCompletedTasks();
-        setActiveTasks(updatedActiveTasks);
-        setCompletedTasks(updatedCompletedTasks);
+        try {
+            const [updatedActiveTasks, updatedCompletedTasks] =
+                await Promise.all([getActiveTasks(), getCompletedTasks()]);
+            setActiveTasks(updatedActiveTasks);
+            setCompletedTasks(updatedCompletedTasks);
+        } catch (error) {
+            console.error('Failed to refresh tasks', error);
+        }
     };
+
+    const { requestPermissions, setupNotificationListener } = useNotification(
+        refreshTasks,
+        markTaskAsCompleted
+    );
 
     useEffect(() => {
         const init = async () => {
-            await LocalNotifications.requestPermissions();
+            await requestPermissions();
             await refreshTasks();
-            setupNotificationListener();
         };
-
-        const setupNotificationListener = async () =>
-            await LocalNotifications.addListener(
-                'localNotificationActionPerformed',
-                async ({ notification }) => {
-                    if (notification.extra && notification.extra.taskId) {
-                        await markTaskAsCompleted(notification.extra.taskId);
-                        await refreshTasks();
-                    }
-                }
-            );
 
         init();
 
         return () => {
-            LocalNotifications.removeAllListeners();
+            setupNotificationListener(false);
         };
     }, []);
+
     return (
         <Container>
             <Title>Accounti-bully</Title>

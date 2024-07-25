@@ -21,3 +21,16 @@ export interface TaskListProps {
     markCompleted?: (id: number) => void;
     isActive: boolean;
 }
+
+export interface TaskReminderProps {
+    title: string;
+    body: string;
+    taskId: number;
+    taskName: string;
+    reminderTime: Date;
+}
+
+export interface TaskRemind15MinProps {
+    taskName: string;
+    taskId: number;
+}
