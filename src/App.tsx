@@ -43,6 +43,10 @@ const App = () => {
         };
     }, []);
 
+    useEffect(() => {
+        refreshTasks();
+    }, [completedTasks]);
+
     return (
         <Container>
             <Title>Accounti-bully</Title>

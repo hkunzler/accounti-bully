@@ -6,7 +6,17 @@ export const TaskItem = ({ task, markCompleted, isActive }: TaskItemProps) => {
         <Item $active={isActive}>
             {`${task.name}`}
             <br />
-            {`${new Date(task.date).toLocaleString()}`}
+            {new Date(task.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+            })}
+            <br />
+            {new Date(task.date).toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true,
+            })}
             {markCompleted && (
                 <TaskButton onClick={() => markCompleted(task.id)}>
                     Mark as Done

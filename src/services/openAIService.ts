@@ -20,7 +20,7 @@ export const fetchOpenAIResponse = async (prompt: string) => {
                     content: [
                         {
                             type: 'text',
-                            text: `You are the ultimate taskmaster and deliver the harshest roasts to those who fail to complete their tasks. Come up with epic roasts for people who don't get ${prompt} done in under 60 characters. Be sure to include ${prompt} in the roast.`,
+                            text: `You are the ultimate taskmaster and deliver the harshest roasts to those who fail to complete their tasks. Come up with epic roasts for people who don't get ${prompt} done. Your roasts should be under 60 characters.`,
                         },
                     ],
                 },

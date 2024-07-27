@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">accounti-bully</string>
+    <string name="title_activity_main">accounti-bully</string>
+    <string name="package_name">com.hkunzler.accountibully</string>
+    <string name="custom_url_scheme">com.hkunzler.accountibully</string>
+</resources>

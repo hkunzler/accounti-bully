@@ -24,12 +24,11 @@ export const scheduleNotification = async (task: TaskProps) => {
         await LocalNotifications.schedule({
             notifications: [
                 {
-                    title: 'Task Reminder',
+                    title: `Reminder: ${task.name}`,
                     body: result.choices[0].message.content,
                     id: Math.floor(Math.random() * 10000),
                     schedule: { at: new Date(notificationTime) },
                     actionTypeId: 'TASK_ACTIONS',
-                    smallIcon: '🔥',
                     extra: { taskId: task.id, taskName: task.name },
                 },
             ],
@@ -70,7 +69,7 @@ const handleRemind15Min = async ({
     const result = await fetchOpenAIResponse(taskName);
 
     await scheduleTaskReminder({
-        title: 'Task Reminder',
+        title: `Reminder: ${taskName}`,
         body: result.choices[0].message.content,
         taskId: taskId,
         taskName: taskName,

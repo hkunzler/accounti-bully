@@ -36,6 +36,7 @@ export const TaskItem = styled.li<{ $active: boolean }>`
     justify-content: space-between;
     align-items: center;
     opacity: ${(props) => (props.$active ? '1' : '0.5')};
+    line-height: 1.5rem;
 `;
 
 export const TaskButton = styled.button`
@@ -57,7 +58,6 @@ export const Container = styled.div`
     padding: 1rem;
     border-radius: 8px;
     box-shadow: var(--box-shadow);
-    width: 100%;
     max-width: 500px;
     margin-top: 2rem;
 `;
